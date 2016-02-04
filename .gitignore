@@ -1,0 +1,11 @@
+/.classpath
+/.gradle
+/.project
+/.settings
+/.tmp
+/.jhipster
+/bin
+/build
+/gradle
+/node_modules
+/target

@@ -1,0 +1,22 @@
+<configuration>
+	<jmxConfigurator />
+	
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="com.example.test.logback.CorrelationPatternLayoutEncoder">
+			<charset>utf-8</charset>
+			<Pattern>%d{HH:mm:ss.SSS} %thread %id [%p] %c - %m%n</Pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="RSYSLOG" class="com.example.test.logback.syslog.CorrelationSyslogAppender">
+		<syslogHost>localhost</syslogHost>
+		<port>2177</port>
+		<facility>LOCAL0</facility>
+		<suffixPattern>%d{HH:mm:ss.SSS} %thread %id [%p] %c - %m%n</suffixPattern>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="RSYSLOG" />
+	</root>
+</configuration>
